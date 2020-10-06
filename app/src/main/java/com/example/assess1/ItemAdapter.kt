@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.text_item_view.view.*
@@ -26,11 +27,15 @@ class ItemAdapter (val context: Context, val items:List<Item>):RecyclerView.Adap
     }
 
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+        var currentItem:Item?=null
+        var currentPosition:Int=0
 
         init{
             itemView.setOnClickListener{
-                val intent=Intent(this,Description::class.java)
-                val bundle:Bundle=intent.extras
+                //val intent=Intent(this,Description::class.java)
+                //val bundle:Bundle=intent.extras
+                val toast = Toast.makeText(this, currentItem.name, 1000)
+                toast.show()
             }
         }
 
